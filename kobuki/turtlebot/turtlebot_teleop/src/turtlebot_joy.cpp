@@ -84,7 +84,7 @@ TurtlebotTeleop::TurtlebotTeleop():
 void TurtlebotTeleop::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 { 
   geometry_msgs::Twist vel;
-  vel.angular.z = a_scale_*joy->axes[angular_];
+  vel.angular.z = -1 * a_scale_*joy->axes[angular_];
   vel.linear.x = l_scale_*joy->axes[linear_];
   last_published_ = vel;
   deadman_pressed_ = joy->buttons[deadman_axis_];
